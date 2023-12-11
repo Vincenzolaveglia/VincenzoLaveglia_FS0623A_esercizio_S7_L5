@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Back Office</title>
+    <script src="script2.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html"><i class="bi bi-house-fill"></i></a>
+    </header>
+
+    <div id="home">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <h1>Homepage</h1>
+            <button id="newButton" class="btn btn-info m-3" onclick="openProductForm()">Nuovo</button>
+        </div>
+        <div id="productList" class="row"></div>
+    </div>
+
+    <div id="backOffice" style="display: none;">
+        <h2 class="text-center">Back Office</h2>
+        <form id="productForm" class="text-center d-flex flex-column">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome:</label>
+                <input type="text" class="form-control text-center" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrizione:</label>
+                <input type="text" class="form-control text-center" id="description" required>
+            </div>
+            <div class="mb-3">
+                <label for="brand" class="form-label">Marca:</label>
+                <input type="text" class="form-control text-center" id="brand" required>
+            </div>
+            <div class="mb-3">
+                <label for="imageUrl" class="form-label">URL Immagine:</label>
+                <input type="text" class="form-control text-center" id="imageUrl" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Prezzo:</label>
+                <input type="number" class="form-control text-center" id="price" required>
+            </div>
+
+            <button type="button" class="btn btn-success m-3" id="submitButton" onclick="submitForm()">Aggiungi</button>
+            <button type="button" class="btn btn-warning m-3" id="resetButton" onclick="resetForm()">Reset</button>
+        </form>
+    </div>
+
+    <div id="showMorePage" style="display: none;">
+        <h2 class="text-center">Dettagli prodotto</h2>
+        <button type="button" class="btn btn-info" onclick="showEditPage('${product._id}')">Modifica</button>
+    </div>
+
+    <div id="paginaModifica" style="display: none;">
+        <h2 class="text-center">Modifica</h2>
+        <form id="editProductForm" class="text-center d-flex flex-column">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome:</label>
+                <input type="text" class="form-control text-center" id="editName" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrizione:</label>
+                <input type="text" class="form-control text-center" id="editDescription" required>
+            </div>
+            <div class="mb-3">
+                <label for="brand" class="form-label">Marca:</label>
+                <input type="text" class="form-control text-center" id="editBrand" required>
+            </div>
+            <div class="mb-3">
+                <label for="imageUrl" class="form-label">URL Immagine:</label>
+                <input type="text" class="form-control text-center" id="editImageUrl" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Prezzo:</label>
+                <input type="number" class="form-control text-center" id="editPrice" required>
+            </div>
+            <div id="btnSection">
+                <button type="button" class="btn btn-success m-3" id="editButton" onclick="applyChanges()">Applica modifiche</button>
+                <button type="button" class="btn btn-warning m-3" id="resetButton" onclick="resetForm()">Reset</button>
+                <button type="button" class="btn btn-danger m-3" id="deleteButton" onclick="deleteProduct()">Elimina risorsa</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
